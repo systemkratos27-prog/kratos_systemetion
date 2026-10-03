@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KRATOS SYSTEMATION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section id="licenseGate" class="screen auth-screen">
+        <div class="auth-shell auth-shell-hero">
+          <div class="brand-shell brand-shell-lg brand-hero-block">
+            <div class="brand-crest">K</div>
+            <div class="brand-wordmark">
+              <span class="brand-word-main">KRATOS</span>
+              <span class="brand-word-sub">SYSTEMATION</span>
+            </div>
+          </div>
+          <h1>Autorización del sistema</h1>
+          <p class="gate-message">Para obtener acceso, comunícate con el administrador</p>
+
+          <div class="contact-card">
+            <span>Nombre</span>
+            <strong>Tomuel</strong>
+            <span>Teléfono</span>
+            <strong>+57 300 000 0000</strong>
+          </div>
+
+          <div class="field-group">
+            <label for="masterPasswordInput">Contraseña maestra</label>
+            <input id="masterPasswordInput" type="password" placeholder="Ingresa la licencia maestra" />
+          </div>
+
+          <button id="unlockBtn" class="primary-btn" type="button">Autorizar dispositivo</button>
+        </div>
+      </section>
+
+      <section id="authScreen" class="screen auth-screen hidden">
+        <div class="auth-shell auth-shell-split">
+          <div class="brand-panel brand-panel-hero">
+            <div class="brand-shell brand-shell-lg">
+              <div class="brand-crest">K</div>
+              <div class="brand-wordmark">
+                <span class="brand-word-main">KRATOS</span>
+                <span class="brand-word-sub">SYSTEMATION</span>
+              </div>
+            </div>
+            <p>Control financiero, inventario, personal y caja en una sola plataforma.</p>
+            <div class="status-badges">
+              <span>Seguridad</span>
+              <span>Licencia por dispositivo</span>
+              <span>Turnos de caja</span>
+            </div>
+          </div>
+
+          <div class="login-panel">
+            <div class="auth-tabs">
+              <button class="auth-tab active" type="button" data-mode="login">Iniciar sesión</button>
+              <button class="auth-tab" type="button" data-mode="register">Crear cuenta</button>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+              <div class="field-group">
+                <label for="loginEmail">Correo electrónico</label>
+                <input id="loginEmail" type="email" placeholder="correo@ejemplo.com" required />
+              </div>
+
+              <div class="field-group">
+                <label for="loginPassword">Contraseña</label>
+                <input id="loginPassword" type="password" placeholder="••••••••" required />
+              </div>
+
+              <button class="primary-btn" type="submit">Ingresar</button>
+            </form>
+
+            <form id="registerForm" class="auth-form hidden">
+              <div class="field-group">
+                <label for="registerBusinessName">Nombre del negocio</label>
+                <input id="registerBusinessName" type="text" placeholder="Ej: Supermercado La Esperanza" required />
+              </div>
+
+              <div class="field-group">
+                <label for="registerBusinessNit">NIT</label>
+                <input id="registerBusinessNit" type="text" placeholder="890.987.654-3" required />
+              </div>
+
+              <div class="field-group">
+                <label for="registerBusinessAddress">Ubicación / dirección</label>
+                <input id="registerBusinessAddress" type="text" placeholder="Sede Poblado - Medellín, Ant." required />
+              </div>
+
+              <div class="field-group">
+                <label for="registerBusinessPhone">Teléfono</label>
+                <input id="registerBusinessPhone" type="text" placeholder="(604) 555-1234" required />
+              </div>
+
+              <div class="field-group">
+                <label for="registerName">Nombre completo del propietario</label>
+                <input id="registerName" type="text" placeholder="Tu nombre" required />
+              </div>
+
+              <div class="field-group">
+                <label for="registerEmail">Correo electrónico</label>
+                <input id="registerEmail" type="email" placeholder="correo@ejemplo.com" required />
+              </div>
+
+              <div class="field-group">
+                <label for="registerPassword">Contraseña de acceso</label>
+                <input id="registerPassword" type="password" placeholder="Crea una contraseña" required />
+              </div>
+
+              <div class="field-group">
+                <label for="registerMasterPassword">Contraseña maestra del sistema</label>
+                <input id="registerMasterPassword" type="password" placeholder="Contraseña maestra" required />
+              </div>
+
+              <div class="terms-box">
+                <label class="terms-checkbox">
+                  <input id="registerTerms" type="checkbox" />
+                  <span>Acepto los términos y condiciones del sistema.</span>
+                </label>
+                <div class="terms-text">
+                  <p><strong>Términos y condiciones de uso</strong></p>
+                  <p>Al registrarte y utilizar KRATOS SYSTEMATION, aceptas usar la plataforma de manera responsable, legal y para los fines autorizados. Queda prohibido vulnerar la seguridad, introducir código malicioso, realizar actividades ilícitas o fraudulentas. La cuenta es de uso personal y el usuario debe resguardar sus credenciales. El incumplimiento de estas condiciones puede causar sanciones inmediatas, incluida la suspensión temporal o eliminación definitiva de la cuenta.</p>
+                </div>
+              </div>
+
+              <button class="primary-btn" type="submit">Registrar cuenta</button>
+            </form>
+
+            <div class="employee-access-box hidden">
+              <h3>Abrir caja (empleado)</h3>
+              <div class="field-row">
+                <input id="employeeDocumentInput" type="text" placeholder="Documento del empleado" />
+                <button id="openCashBtn" type="button" class="secondary-btn">Abrir turno</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="dashboardScreen" class="dashboard-screen hidden">
+        <header class="topbar">
+          <div class="brand-block">
+            <div class="brand-logo">K</div>
+            <div class="brand-name-wrap">
+              <div class="brand-name">KRATOS</div>
+              <div class="brand-subname">SYSTEMATION</div>
+            </div>
+          </div>
+
+          <div class="topbar-actions">
+            <div id="userPill" class="user-pill">Invitado</div>
+            <button id="ownerConsoleBtn" class="secondary-btn hidden" type="button">Editor del dueño</button>
+            <button id="logoutBtn" class="logout-btn" type="button">Cerrar sesión</button>
+          </div>
+        </header>
+
+        <div class="layout">
+          <aside class="sidebar">
+            <nav class="nav-menu" aria-label="Menú principal">
+              <button class="nav-item active" type="button" data-view="panel">Panel</button>
+              <button class="nav-item private-only" type="button" data-view="inventario">Inventario</button>
+              <button class="nav-item private-only" type="button" data-view="gastos">Gastos</button>
+              <button class="nav-item" type="button" data-view="caja">Caja</button>
+              <button class="nav-item private-only" type="button" data-view="empleados">Empleados</button>
+            </nav>
+          </aside>
+
+          <main class="main-content">
+            <section id="view-panel" class="view-panel active-view">
+              <div class="page-header">
+                <div>
+                  <p class="eyebrow">Resumen general</p>
+                  <h2>Panel principal</h2>
+                </div>
+                <button class="secondary-btn" type="button">Exportar</button>
+              </div>
+
+              <div class="stat-grid">
+                <article class="stat-card accent">
+                  <span class="label">Ventas del día</span>
+                  <strong id="ventasDia">$0</strong>
+                  <small id="ventasDiaMeta">Sin movimiento</small>
+                </article>
+                <article class="stat-card">
+                  <span class="label">Ventas del mes</span>
+                  <strong id="ventasMes">$0</strong>
+                  <small id="ventasMesMeta">Acumulado</small>
+                </article>
+                <article class="stat-card">
+                  <span class="label">Utilidad bruta</span>
+                  <strong id="utilidadBruta">$0</strong>
+                  <small id="utilidadBrutaMeta">Ganancia</small>
+                </article>
+                <article class="stat-card">
+                  <span class="label">Utilidad neta</span>
+                  <strong id="utilidadNeta">$0</strong>
+                  <small id="utilidadNetaMeta">Margen</small>
+                </article>
+              </div>
+
+              <div class="stat-grid second-grid">
+                <article class="stat-card">
+                  <span class="label">Efectivo del mes</span>
+                  <strong id="efectivoMes">$0</strong>
+                  <small id="efectivoMesMeta">Ventas en efectivo</small>
+                </article>
+                <article class="stat-card">
+                  <span class="label">Transferencias del mes</span>
+                  <strong id="transferMes">$0</strong>
+                  <small id="transferMesMeta">Pagos digitales</small>
+                </article>
+                <article class="stat-card">
+                  <span class="label">Inventario total</span>
+                  <strong id="valorInventario">$0</strong>
+                  <small id="valorInventarioMeta">Costo de compra</small>
+                </article>
+                <article class="stat-card">
+                  <span class="label">Nómina mensual</span>
+                  <strong id="nominaMes">$0</strong>
+                  <small id="nominaMesMeta">Costo laboral</small>
+                </article>
+              </div>
+
+              <div class="info-grid">
+                <article class="panel-card chart-card">
+                  <div class="card-header">
+                    <h3>Ingresos vs costos</h3>
+                    <span class="chip success" id="margenLabel">0%</span>
+                  </div>
+                  <div class="bars-panel" id="incomeChart">
+                    <div class="bar-group">
+                      <span class="bar income" style="height: 0%"></span>
+                      <label>Ingresos</label>
+                    </div>
+                    <div class="bar-group">
+                      <span class="bar cost" style="height: 0%"></span>
+                      <label>Costos</label>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="panel-card">
+                  <div class="card-header">
+                    <h3>Distribución de gastos</h3>
+                  </div>
+                  <div class="donut-wrap">
+                    <div id="expenseDonut" class="donut-chart"></div>
+                    <ul id="expenseLegend" class="legend-list"></ul>
+                  </div>
+                </article>
+              </div>
+
+              <div class="info-grid margin-top-24">
+                <article class="panel-card">
+                  <div class="card-header">
+                    <h3>Control de cierre de caja</h3>
+                  </div>
+                  <div class="table-card inner-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Debe tener</th>
+                          <th>Lo que tiene</th>
+                          <th>Diferencia</th>
+                          <th>Transferencias</th>
+                        </tr>
+                      </thead>
+                      <tbody id="cierreCajaTable"></tbody>
+                    </table>
+                  </div>
+                </article>
+
+                <article class="panel-card">
+                  <div class="card-header">
+                    <h3>Historial operativo por empleado</h3>
+                  </div>
+                  <div id="employeeHistory" class="history-list"></div>
+                </article>
+              </div>
+
+              <div class="panel-summary-grid">
+                <article class="panel-card">
+                  <div class="card-header">
+                    <h3>Pagos de nómina</h3>
+                  </div>
+                  <div id="payrollList" class="mini-list"></div>
+                </article>
+
+                <article class="panel-card">
+                  <div class="card-header">
+                    <h3>Gastos del mes</h3>
+                  </div>
+                  <div id="expenseList" class="mini-list"></div>
+                </article>
+
+                <article class="panel-card">
+                  <div class="card-header">
+                    <h3>Stock bajo</h3>
+                  </div>
+                  <div id="lowStockList" class="mini-list"></div>
+                </article>
+
+                <article class="panel-card">
+                  <div class="card-header">
+                    <h3>Top 5 productos</h3>
+                  </div>
+                  <div id="topProductsList" class="mini-list"></div>
+                </article>
+              </div>
+
+              <article class="panel-card full-panel-card">
+                <div class="card-header">
+                  <h3>Ventas registradas en turnos</h3>
+                </div>
+                <div id="salesLogList" class="sales-log-list"></div>
+              </article>
+            </section>
+
+            <section id="view-inventario" class="view-panel hidden">
+              <div class="page-header">
+                <div>
+                  <p class="eyebrow">Mercancía</p>
+                  <h2>Inventario</h2>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <form id="inventoryForm" class="data-form">
+                  <div class="field-group">
+                    <label>Nombre</label>
+                    <input id="productName" type="text" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Código de barras/producto</label>
+                    <input id="productCode" type="text" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Descripción</label>
+                    <input id="productDescription" type="text" placeholder="Ej: Leche entera 1L" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Precio de venta</label>
+                    <input id="productPrice" type="number" min="0" step="0.01" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Cantidad</label>
+                    <input id="productQty" type="number" min="0" step="1" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Stock mínimo</label>
+                    <input id="productMinStock" type="number" min="0" step="1" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Precio de costo</label>
+                    <input id="productCost" type="number" min="0" step="0.01" required />
+                  </div>
+                  <button class="primary-btn" type="submit">Guardar producto</button>
+                </form>
+
+                <div class="table-card table-wrapper">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Código</th>
+                        <th>Venta</th>
+                        <th>Cantidad</th>
+                        <th>Costo</th>
+                      </tr>
+                    </thead>
+                    <tbody id="inventoryTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section id="view-gastos" class="view-panel hidden">
+              <div class="page-header">
+                <div>
+                  <p class="eyebrow">Salidas de dinero</p>
+                  <h2>Gastos</h2>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <form id="expenseForm" class="data-form">
+                  <div class="field-group">
+                    <label>Descripción del gasto</label>
+                    <input id="expenseDescription" type="text" required />
+                  </div>
+                  <div class="field-group">
+                    <label>General / Categoría</label>
+                    <select id="expenseCategory" required>
+                      <option value="Administrativo">Administrativo</option>
+                      <option value="Operación">Operación</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Nomina">Nómina</option>
+                      <option value="Otros">Otros</option>
+                    </select>
+                  </div>
+                  <div class="field-group">
+                    <label>Monto</label>
+                    <input id="expenseAmount" type="number" min="0" step="0.01" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Fecha del gasto</label>
+                    <input id="expenseDate" type="date" required />
+                  </div>
+                  <button class="primary-btn" type="submit">Registrar gasto</button>
+                </form>
+
+                <div class="table-card table-wrapper">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Descripción</th>
+                        <th>Categoría</th>
+                        <th>Monto</th>
+                        <th>Fecha</th>
+                      </tr>
+                    </thead>
+                    <tbody id="expenseTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section id="view-caja" class="view-panel hidden">
+              <div class="page-header">
+                <div>
+                  <p class="eyebrow">Operativo</p>
+                  <h2>Caja</h2>
+                </div>
+              </div>
+
+              <div class="cash-panel">
+                <div class="cash-status" id="cashStatusBox"></div>
+
+                <div id="cashActivationPanel" class="cash-activation-panel">
+                  <h3>No se ha activado el turno</h3>
+                  <p>Activa el turno para comenzar a registrar ventas.</p>
+                  <div class="field-row activate-row">
+                    <input id="activateShiftDocument" type="text" placeholder="Documento del empleado" />
+                    <button id="activateShiftBtn" class="primary-btn" type="button">Activar turno</button>
+                  </div>
+                </div>
+
+                <div id="cashSaleBox" class="cash-sale-box">
+                  <h3>Nueva venta</h3>
+
+                  <div class="sale-controls">
+                    <input id="saleProductCode" type="text" placeholder="Código del producto" />
+                    <input id="saleQtyInput" type="number" min="1" value="1" placeholder="Cantidad" />
+                    <button id="addSaleBtn" class="primary-btn" type="button">Agregar</button>
+                  </div>
+
+                  <div id="salePreview" class="sale-preview hidden"></div>
+
+                  <div id="paymentChoice" class="payment-choice hidden">
+                    <span>¿Cómo va a pagar el cliente?</span>
+                    <div class="payment-btn-row">
+                      <button type="button" class="payment-btn active" data-payment="efectivo">Efectivo</button>
+                      <button type="button" class="payment-btn" data-payment="transferencia">Transferencia</button>
+                    </div>
+                  </div>
+
+                  <div class="sale-total-box">
+                    <span>Total a pagar</span>
+                    <strong id="cashTotal">$0</strong>
+                  </div>
+
+                  <button id="registerSaleBtn" class="primary-btn hidden" type="button">Registrar venta</button>
+
+                  <div id="receiptActions" class="receipt-actions hidden">
+                    <button id="printReceiptBtn" class="secondary-btn" type="button">Imprimir recibo</button>
+                  </div>
+                </div>
+
+                <div class="cash-summary-box">
+                  <div class="summary-item">
+                    <span>Ventas del turno</span>
+                    <strong id="turnSalesTotal">$0</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span>Ventas en efectivo</span>
+                    <strong id="turnCashTotal">$0</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span>Transferencias</span>
+                    <strong id="turnTransferTotal">$0</strong>
+                  </div>
+                  <button id="closeCashBtn" class="danger-btn" type="button">Cerrar Caja</button>
+                </div>
+              </div>
+            </section>
+
+            <section id="view-empleados" class="view-panel hidden">
+              <div class="page-header">
+                <div>
+                  <p class="eyebrow">Personal</p>
+                  <h2>Empleados</h2>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <form id="employeeForm" class="data-form">
+                  <div class="field-group">
+                    <label>Nombre</label>
+                    <input id="employeeName" type="text" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Cargo</label>
+                    <input id="employeeRole" type="text" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Documento</label>
+                    <input id="employeeDocument" type="text" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Teléfono</label>
+                    <input id="employeePhone" type="tel" required />
+                  </div>
+                  <div class="field-group">
+                    <label>Salario mensual</label>
+                    <input id="employeeSalary" type="number" min="0" step="0.01" required />
+                  </div>
+                  <button class="primary-btn" type="submit">Guardar empleado</button>
+                </form>
+
+                <div class="table-card table-wrapper">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Cargo</th>
+                        <th>Documento</th>
+                        <th>Teléfono</th>
+                        <th>Salario</th>
+                      </tr>
+                    </thead>
+                    <tbody id="employeeTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
