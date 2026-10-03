@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KRATOS SYSTEMATION | Dueño del sistema</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="ownerAccessGate" class="license-gate-screen">
+      <div class="license-card">
+        <div class="brand-block">
+          <div class="brand-logo">K</div>
+          <div class="brand-name-wrap">
+            <div class="brand-name">KRATOS</div>
+            <div class="brand-subname">SYSTEMATION</div>
+          </div>
+        </div>
+
+        <h1>Acceso restringido</h1>
+        <p>Esta interfaz solo puede ingresar el dueño del sistema.</p>
+
+        <div class="field-group">
+          <label for="ownerAccessInput">Contraseña maestra</label>
+          <input id="ownerAccessInput" type="password" placeholder="Ingresa la licencia maestra" />
+        </div>
+
+        <button id="ownerUnlockBtn" class="primary-btn" type="button">Autorizar acceso</button>
+        <a href="index.html" class="back-link">Volver al sistema</a>
+      </div>
+    </div>
+
+    <section id="ownerConsoleScreen" class="screen owner-console-screen">
+      <div class="owner-console-shell">
+        <div class="owner-console-header">
+          <div>
+            <p class="eyebrow">Panel maestro</p>
+            <h2>Gestión del sistema</h2>
+          </div>
+          <button id="ownerCloseConsoleBtn" class="secondary-btn" type="button">Volver al sistema</button>
+        </div>
+
+        <div class="owner-console-summary">
+          <div class="owner-summary-card">
+            <span>Total de cuentas</span>
+            <strong id="ownerTotalAccounts">0</strong>
+          </div>
+          <div class="owner-summary-card">
+            <span>Cuentas activas</span>
+            <strong id="ownerActiveAccounts">0</strong>
+          </div>
+          <div class="owner-summary-card">
+            <span>Con maestra activa</span>
+            <strong id="ownerMasterProtected">0</strong>
+          </div>
+        </div>
+
+        <div class="owner-management-grid">
+          <form id="ownerMasterPasswordForm" class="owner-panel-card">
+            <h3>Contraseña maestra</h3>
+            <div class="field-group">
+              <label for="ownerCurrentMasterPassword">Contraseña actual</label>
+              <input id="ownerCurrentMasterPassword" type="password" placeholder="Contraseña actual" />
+            </div>
+            <div class="field-group">
+              <label for="ownerNewMasterPassword">Nueva contraseña maestra</label>
+              <input id="ownerNewMasterPassword" type="password" placeholder="Nueva contraseña maestra" />
+            </div>
+            <div class="field-group">
+              <label for="ownerConfirmMasterPassword">Confirmar contraseña</label>
+              <input id="ownerConfirmMasterPassword" type="password" placeholder="Confirmar nueva contraseña" />
+            </div>
+            <label class="toggle-row">
+              <input id="ownerMasterStatusToggle" type="checkbox" checked />
+              <span>Protección activa</span>
+            </label>
+            <button class="primary-btn" type="submit">Guardar contraseña maestra</button>
+          </form>
+
+          <form id="ownerSettingsForm" class="owner-panel-card">
+            <h3>Configuración del sistema</h3>
+            <div class="field-group">
+              <label for="ownerBusinessNameInput">Nombre del negocio</label>
+              <input id="ownerBusinessNameInput" type="text" placeholder="Nombre del sistema" />
+            </div>
+            <div class="field-group">
+              <label for="ownerBusinessPhoneInput">Contacto principal</label>
+              <input id="ownerBusinessPhoneInput" type="text" placeholder="Teléfono de contacto" />
+            </div>
+            <div class="field-group">
+              <label for="ownerThemeSelect">Tema visual</label>
+              <select id="ownerThemeSelect">
+                <option value="dark">Oscuro</option>
+                <option value="blue">Azul premium</option>
+                <option value="light">Claro</option>
+              </select>
+            </div>
+            <button class="secondary-btn" type="submit">Guardar cambios de diseño</button>
+          </form>
+        </div>
+
+        <div class="owner-console-list">
+          <div class="owner-list-header">
+            <span>Cuenta</span>
+            <span>Permisos</span>
+            <span>Acciones</span>
+          </div>
+          <div id="ownerAccountsList"></div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
